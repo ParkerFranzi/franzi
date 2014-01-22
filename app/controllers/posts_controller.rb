@@ -9,10 +9,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize! :create, Post, message: "You need to be a confirmed friend/family member to create a post."
   end
 
   def create
     @post = Post.new(params[:post])
+    authorize! :create, Post, message: "You need to be a confirmed friend/family member to create a post."
     if @post.save
       flash[:notice] = "post was saved."
       redirect_to @post
@@ -24,10 +26,12 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    authorize! :edit, @post, message: "You need to own the post to edit it."
   end
 
   def update
     @post = Post.find(params[:id])
+    authorize! :update, @post, message: "You need to own the post to edit it."
     if @post.update_attributes(params[:post])
       flash[:notice] = "Post was updated."
       redirect_to @post
