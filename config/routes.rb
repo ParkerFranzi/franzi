@@ -1,8 +1,10 @@
 Franzi::Application.routes.draw do
-  get "welcome/index"
 
-  get "welcome/about"
+  devise_for :views
 
-  root to: 'welcome#index'
+  resources :posts
 
+  match "about" => 'welcome#about', via: :get
+
+  root :to => 'welcome#index'
 end
