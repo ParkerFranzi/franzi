@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :posts
   # attr_accessible :title, :body
-  ROLES = %w[member moderator admin]
+  ROLES = %w[guest member admin]
   def role?(base_role)
     role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
   end 
@@ -16,6 +16,6 @@ class User < ActiveRecord::Base
   private
 
   def set_member
-    self.role = 'member'
+    self.role = 'guest'
   end 
 end

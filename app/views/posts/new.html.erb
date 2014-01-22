@@ -1,9 +1,7 @@
-<%= form_for @post do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<h1>New Post</h1>
 
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-
-  <%= f.submit "Save" %>
-<% end %>
+<div class="row">
+  <div class="span12">
+    <%= render partial: 'form', locals: { post: @post } %>
+  </div>
+</div>
