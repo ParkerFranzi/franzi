@@ -1,19 +1,22 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page], per_page: 10)
+    #authorize! :read, Post, message: "You need to be a confirmed friend/family member to view posts."
   end
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
+    authorize! :read, Post, message: "You need to be a confirmed friend/family member to view posts."
   end
 
   def new
     @post = Post.new
-    authorize! :create, Post, message: "You need to be a confirmed friend/family member to create a post."
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = current_user.posts.build(params[:post])
     authorize! :create, Post, message: "You need to be a confirmed friend/family member to create a post."
     if @post.save
       flash[:notice] = "post was saved."

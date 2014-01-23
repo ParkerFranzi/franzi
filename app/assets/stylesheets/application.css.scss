@@ -3,3 +3,30 @@
 .user-info {
   margin-top: 9px;
 }
+
+textarea{ 
+  width: 400px; 
+  min-width:400px; 
+  max-width:400px; 
+
+  height:200px; 
+  min-height:200px;  
+  max-height:200px;
+}
+
+/*input[type="text"]{
+
+
+  width: 400px;
+  min-width:400px;
+  max-width:400px;
+}*/
+
+/*html {
+background: image-url('mypic.jpg');
+}*/
+.resizedtextbox {
+  width: 400px;
+  min-width:400px;
+  max-width:400px;
+}

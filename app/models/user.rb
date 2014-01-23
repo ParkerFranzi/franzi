@@ -5,8 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   has_many :posts
+  has_many :comments
+
+  before_create :set_role
+
   # attr_accessible :title, :body
   ROLES = %w[guest member admin]
   def role?(base_role)
@@ -15,7 +19,7 @@ class User < ActiveRecord::Base
 
   private
 
-  def set_member
+  def set_role
     self.role = 'guest'
   end 
 end

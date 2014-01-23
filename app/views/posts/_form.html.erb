@@ -2,7 +2,7 @@
   <div class="control-group">
     <%= f.label :title, class: 'control-label' %>
     <div class="controls">
-      <%= f.text_field :title, :size => "50" %>
+      <%= f.text_field :title, class: 'resizedtextbox' %>
     </div>
   </div>
   <div class="control-group">
@@ -13,7 +13,7 @@
   </div>
   <div class="control-group">
     <div class="controls">
-      <%= f.submit "Save", class: 'btn' %>
+      <%= f.submit "Save", class: 'btn btn-success' %>
     </div>
   </div>
 <% end %>
