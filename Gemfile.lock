@@ -70,6 +70,8 @@ GEM
       ruby-hmac
     formatador (0.2.4)
     hike (1.2.3)
+    humane-rails (5.0.2)
+      rails (>= 3.1.0)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -161,6 +163,7 @@ DEPENDENCIES
   devise
   figaro
   fog
+  humane-rails
   jquery-rails
   mini_magick
   pg

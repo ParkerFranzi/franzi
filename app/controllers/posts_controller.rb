@@ -43,4 +43,20 @@ class PostsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    
+    title = @post.title
+    authorize! :destroy, @post, message: "You need to own the post to destroy it."
+    if @post.destroy
+      flash[:notice] = "\"#{title}\" was deleted successfully."
+      redirect_to @post
+    else
+      flash[:error] = "There was an error deleting the post."
+      render :show
+    end
+  end
+
+
 end
