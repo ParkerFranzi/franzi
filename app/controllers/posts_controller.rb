@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.paginate(page: params[:page], per_page: 10)
-    #authorize! :read, Post, message: "You need to be a confirmed friend/family member to view posts."
+    authorize! :read, Post, message: "You need to be a confirmed friend/family member to view posts."
   end
 
   def show

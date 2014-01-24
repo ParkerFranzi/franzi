@@ -34,6 +34,10 @@ gem 'devise'
 gem 'cancan'
 gem 'redcarpet'
 gem 'will_paginate', '~> 3.0'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'figaro'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
