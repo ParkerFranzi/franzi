@@ -5,8 +5,10 @@ Franzi::Application.routes.draw do
   devise_for :users
 
   resources :posts do
-    resources :comments, only: [:create]
+    resources :comments
   end
+
+  resources :users, only: [:show]
 
   match "about" => 'welcome#about', via: :get
 
