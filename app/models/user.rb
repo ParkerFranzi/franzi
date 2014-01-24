@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   before_create :set_role
+  
 
   # attr_accessible :title, :body
   ROLES = %w[guest member admin]
