@@ -26,6 +26,6 @@ class User < ActiveRecord::Base
   end 
 
   def authorized
-    self.authorize = false
+    self.update_attribute(:authorize, false)
   end
 end
