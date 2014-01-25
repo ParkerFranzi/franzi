@@ -11,6 +11,7 @@
         <ul class="nav nav-tabs">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Posts", posts_path %></li>
+          <li><%#= link_to "User-list", %></li>
           <div class="pull-right user-info">
             <% if current_user %>
               Hello <%= link_to (current_user.name || current_user.email), edit_user_registration_path %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
