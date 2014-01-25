@@ -5,11 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :authorize
   has_many :posts
   has_many :comments
 
-  before_create :set_role
+  before_create :set_role 
+  after_create :authorized
   
 
   # attr_accessible :title, :body
@@ -23,4 +24,8 @@ class User < ActiveRecord::Base
   def set_role
     self.role = 'guest'
   end 
+
+  def authorized
+    self.authorize = false
+  end
 end

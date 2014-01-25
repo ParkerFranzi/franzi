@@ -8,6 +8,7 @@
           <th>Email</th>
           <th>Current Role</th>
           <th>Update Role</th>
+          <th>Authorized</th>
         </tr>
       <% @users.each do |user| %>
         <%# if user.role == 'admin' && user.email != current_user.email %>
@@ -16,6 +17,7 @@
           <td><center><%= user.email %></td></center>
           <td><center><%= user.role %></td></center>
           <td><center><%= check_box_tag :role, user.role, @users.include?(user) %></center></td>
+          <td><center><%= user.authorize %></td></center>
           <%#= label_tag :user_ids, user.email %>
         </tr>
         <%# end %>

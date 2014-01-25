@@ -2,7 +2,7 @@ Franzi::Application.routes.draw do
 
   get "comments/create"
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
+  devise_for :users
 
   resources :posts do
     resources :comments
