@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   private
 
   def set_role
-    self.role = 'guest'
+    self.role = 'admin'
   end 
 
   def authorized

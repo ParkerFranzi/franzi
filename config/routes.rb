@@ -8,7 +8,7 @@ Franzi::Application.routes.draw do
     resources :comments
   end
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :destroy]
 
   match "about" => 'welcome#about', via: :get
 
