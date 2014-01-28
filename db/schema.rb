@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140125082307) do
+ActiveRecord::Schema.define(:version => 20140127205558) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(:version => 20140125082307) do
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "galleries", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.string   "name"
+    t.text     "frame"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "gallery_id"
+  end
+
+  add_index "pictures", ["gallery_id"], :name => "index_pictures_on_gallery_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -54,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20140125082307) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
-    t.boolean  "authorize"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

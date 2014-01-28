@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :authorize
   has_many :posts
   has_many :comments
+  has_many :gallerys
 
   before_create :set_role 
   after_create :authorized

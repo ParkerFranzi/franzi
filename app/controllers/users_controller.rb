@@ -1,19 +1,17 @@
 class UsersController < ApplicationController
 
-  def show
-    @user = User.find(params[:id])
+  def index
     @users = User.all
   end
 
   def destroy
     @user = User.find(params[:id])
-    @users = User.all
     if @user.destroy
-      flash[:notice] = "was deleted successfully."
-      render :show
+      flash[:notice] = "User was deleted successfully."
+      redirect_to users_path
     else
-      flash[:error] = "There was an error deleting the topic."
-      render :show
+      flash[:error] = "There was an error deleting the user."
+      redirect_to users_path
     end
   end
 end

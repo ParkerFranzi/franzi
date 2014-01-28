@@ -1,14 +1,17 @@
 Franzi::Application.routes.draw do
 
-  get "comments/create"
-
+  resources :gallerys do
+    resources :pictures
+  end
+  
   devise_for :users
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :destroy_user
 
   resources :posts do
     resources :comments
   end
 
-  resources :users, only: [:show, :destroy]
+  resources :users, only: [:index]
 
   match "about" => 'welcome#about', via: :get
 

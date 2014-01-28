@@ -11,8 +11,9 @@
         <ul class="nav nav-tabs">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Posts", posts_path %></li>
+          <li><%= link_to "Gallery", gallerys_path %></li>
           <% if current_user && current_user.role == 'admin' %>
-            <li><%= link_to "User-list", current_user %></li>
+            <li><%= link_to "User-list", users_path %></li>
           <% end %>
           <div class="pull-right user-info">
             <% if current_user %>

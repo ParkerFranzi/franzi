@@ -1,0 +1,19 @@
+<h1>All Gallerys</h1>
+<% if can? :create, Gallery %>
+  <%= link_to "New Gallery", new_gallery_path, class: 'btn btn-primary btn-mini' %>
+<% end %>
+<%= will_paginate @gallerys %>
+
+<% @gallerys.each do |post| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to gallery.title, post %>
+      </h4>
+      <small>
+        submitted <%= time_ago_in_words(gallery.created_at) %> ago by <%= post.user.name %><br/>
+      </small>
+    </div>
+  </div>
+<% end %>
+<%= will_paginate @gallerys %>
