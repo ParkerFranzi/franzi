@@ -39,6 +39,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'figaro'
 gem 'rails_autolink'
+gem 'best_in_place'
 
 
 # To use ActiveModel has_secure_password

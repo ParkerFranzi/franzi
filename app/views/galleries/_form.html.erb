@@ -1,0 +1,29 @@
+<%= form_for [gallery], html: { class: 'form' } do |f| %>
+<% if gallery.errors.any? %>
+    <div class="alert alert-block">
+      <h4>There are <%= pluralize(gallery.errors.count, "error") %>.</h4>
+      <ul>
+        <% gallery.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= control_group_tag(gallery.errors[:title]) do %>
+    <%= f.label :title, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, class: 'resizedtextbox' %>
+    </div>
+  <% end %>
+  <%= control_group_tag(gallery.errors[:body]) do %>
+    <%= f.label :description, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, rows: 8 %>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Save", class: 'btn' %>
+    </div>
+  </div>
+<% end %>

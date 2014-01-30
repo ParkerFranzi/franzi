@@ -1,5 +1,5 @@
 class Gallery < ActiveRecord::Base
-  attr_accessible :body, :title
+  attr_accessible :title, :description, :image
   belongs_to :user
-  has_many :picture
+  has_many :pictures
 end

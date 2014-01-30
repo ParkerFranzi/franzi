@@ -1,6 +1,6 @@
 Franzi::Application.routes.draw do
 
-  resources :gallerys do
+  resources :galleries do
     resources :pictures
   end
   
@@ -11,7 +11,7 @@ Franzi::Application.routes.draw do
     resources :comments
   end
 
-  resources :users, only: [:index]
+  resources :users
 
   match "about" => 'welcome#about', via: :get
 
