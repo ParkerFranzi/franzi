@@ -24,8 +24,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  # Process files as they are uploaded:
-  process :resize_to_fill => [300, 300]
+  # process files as they are uploaded:
+  # process :resize_to_fill => [300, 300]
   #
   # def scale(width, height)
   #   # do something
@@ -36,6 +36,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [50, 50]
   end
 
+  version :view do
+    process :resize_to_fill => [300, 300]
+  end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list

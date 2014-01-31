@@ -31,7 +31,9 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    @picture = Picture.find(params[:id])
+    @gallery = Gallery.find(params[:gallery_id])
+    
+    @picture = @gallery.pictures.find(params[:id])
 
     authorize! :destroy, @picture, message: "You need to own the picture to destroy it."
     if @picture.destroy

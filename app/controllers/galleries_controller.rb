@@ -33,6 +33,18 @@ class GalleriesController < ApplicationController
     authorize! :edit, @gallery, message: "You need to own the post to edit it."
   end
 
+  def update
+    @gallery = Gallery.find(params[:id])
+    authorize! :update, @gallery, message: "You need to own the gallery to edit it."
+    if @gallery.update_attributes(params[:gallery])
+      flash[:notice] = "Gallery was updated."
+      redirect_to @gallery
+    else
+      flash[:error] = "There was an error saving the gallery. Please try again."
+      render :edit
+    end
+  end
+
   def destroy
     @gallery = Gallery.find(params[:id])
     

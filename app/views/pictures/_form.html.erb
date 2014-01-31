@@ -1,5 +1,16 @@
 <%= form_for [gallery, picture], html: { class: 'form' } do |f| %>
-  <%= control_group_tag(gallery.errors[:image]) do %>
+  <% if picture.errors.any? %>
+    <div class="alert alert-block">
+      <h4>There are <%= pluralize(picture.errors.count, "error") %>.</h4>
+      <ul>
+        <% picture.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= control_group_tag(picture.errors[:image]) do %>
     <%= f.label :image, class: 'control-label' %>
     <div class="controls">
       <%= f.file_field :image %>
@@ -9,5 +20,6 @@
     <div class="controls">
       <%= f.submit "Save", class: 'btn' %>
     </div>
+  </div>
 
 <% end %>

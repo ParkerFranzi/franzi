@@ -1,10 +1,10 @@
 <div class="span12">
 
   <% if can? :edit, @gallery %>
-    <%= link_to "Edit", edit_gallery_path(@gallery), class: 'btn btn-small btn' %>
+    <%= link_to "Edit", edit_gallery_path(@gallery), class: 'btn btn-small btn-primary' %>
   <% end %>
   <% if can? :create, Picture %>
-    <%= link_to "New Picture", new_gallery_picture_path(@gallery), class: 'btn btn-small btn' %>
+    <%= link_to "New Picture", new_gallery_picture_path(@gallery), class: 'btn btn-small btn-primary' %>
   <% end %>
 
   <h1><%= markdown @gallery.title %></h1>
@@ -12,7 +12,7 @@
 
 
   <% @gallery.pictures.each do |picture| %>
-    <%= link_to image_tag(picture.image_url(:thumb)), edit_gallery_picture_path(@gallery) %>
+    <%= link_to image_tag(picture.image_url(:view)), picture.image_url %>
   <% end %>
 
   

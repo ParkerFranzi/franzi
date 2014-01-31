@@ -15,7 +15,7 @@
       <%= f.text_field :title, class: 'resizedtextbox' %>
     </div>
   <% end %>
-  <%= control_group_tag(gallery.errors[:body]) do %>
+  <%= control_group_tag(gallery.errors[:description]) do %>
     <%= f.label :description, class: 'control-label' %>
     <div class="controls">
       <%= f.text_area :description, rows: 8 %>
