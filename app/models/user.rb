@@ -22,6 +22,6 @@ class User < ActiveRecord::Base
   private
 
   def set_role
-    self.role = 'admin'
+    self.role = 'guest'
   end 
 end
