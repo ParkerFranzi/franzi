@@ -33,4 +33,17 @@ class GalleriesController < ApplicationController
     authorize! :edit, @gallery, message: "You need to own the post to edit it."
   end
 
+  def destroy
+    @gallery = Gallery.find(params[:id])
+    
+    title = @gallery.title
+    authorize! :destroy, @gallery, message: "You need to own the gallery to destroy it."
+    if @gallery.destroy
+      flash[:notice] = "\"#{title}\" was deleted successfully."
+      redirect_to @gallery
+    else
+      flash[:error] = "There was an error deleting the gallery."
+      render :show
+    end
+  end
 end

@@ -1,7 +1,8 @@
 class PicturesController < ApplicationController
-  def show
-    @pictures = @gallery.pictures
-  end
+  # def show
+  #   @picture = Picture.find(params[:id])
+  #   @pictures = @gallery.pictures
+  # end
 
   def new
     @gallery = Gallery.find(params[:gallery_id])
@@ -26,5 +27,19 @@ class PicturesController < ApplicationController
   end
 
   def edit
+    @picture = Picture.find(params[:id])
+  end
+
+  def destroy
+    @picture = Picture.find(params[:id])
+
+    authorize! :destroy, @picture, message: "You need to own the picture to destroy it."
+    if @picture.destroy
+      flash[:notice] = "Picture was deleted successfully."
+      redirect_to @gallery
+    else
+      flash[:error] = "There was an error deleting the post."
+      redirect_to @gallery
+    end
   end
 end
