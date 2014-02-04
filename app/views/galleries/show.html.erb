@@ -10,7 +10,6 @@
   <h1><%= markdown @gallery.title %></h1>
   <p><%= markdown @gallery.description %><p>
 
-
   <% @gallery.pictures.each do |picture| %>
     <%= link_to image_tag(picture.image_url(:view)), picture.image_url %>
   <% end %>

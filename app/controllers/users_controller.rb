@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    #@users = User.all_but(current_user)
     @users = User.all
     authorize! :edit, @user, message: "You need permission to view the user list."
   end

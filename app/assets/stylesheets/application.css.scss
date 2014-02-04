@@ -2,17 +2,17 @@
 @import "bootstrap";
 
 .user-info {
-  margin-top: 9px;
+  margin-top: 0px;
 }
 
 textarea{ 
-  width: 400px; 
-  min-width:400px; 
-  max-width:400px; 
+  width: 250px; 
+  min-width:250px; 
+  max-width:500px; 
 
   height:200px; 
   min-height:200px;  
-  max-height:200px;
+  max-height:500px;
 }
 
 /*input[type="text"]{
@@ -26,8 +26,26 @@ textarea{
 /*html {
 background: image-url('mypic.jpg');
 }*/
-.resizedtextbox {
-  width: 400px;
-  min-width:400px;
-  max-width:400px;
-}
+
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    line-height: 46px;
+    font-size: 42px;
+    margin: 0 0 23px 0;
+    }
+h2 {
+    font-family: 'EB Garamond', serif;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: 2px;
+    margin: 0 0 0 0;
+    }
+p {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    line-height: 23px;
+    margin: 0 0 0 0;
+    }

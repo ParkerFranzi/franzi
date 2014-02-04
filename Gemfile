@@ -40,6 +40,7 @@ gem 'fog'
 gem 'figaro'
 gem 'rails_autolink'
 gem 'best_in_place'
+gem 'google-webfonts'
 
 
 # To use ActiveModel has_secure_password
