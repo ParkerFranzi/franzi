@@ -1,6 +1,7 @@
 Franzi::Application.routes.draw do
 
   resources :galleries do
+    resources :comments
     resources :pictures
   end
   

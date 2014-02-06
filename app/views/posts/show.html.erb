@@ -11,9 +11,12 @@
   <p><%= markdown auto_link(@post.body) %></p>
   <p><%= image_tag(@post.image_url) if @post.image? %></p>
   <br>
-  <h2><%= @comments.count %> Comments</h2>
+  <h2><%= @post.comments.count %> Comments</h2>
+
+  
 
   <%= render @comments %>
+
 
   <% if can? :create, Comment %>
     <hr/>

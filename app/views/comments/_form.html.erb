@@ -1,4 +1,4 @@
-<%= form_for [post, comment], htm: { class: 'form-horizontal' } do |f| %>
+<%= form_for [@commentable, @comment], htm: { class: 'form-horizontal' } do |f| %>
   <% if comment.errors.any? %>
     <div class="alert alert-block">
       <h4>There are <%= pluralize(comment.errors.count, "error") %> errors.</h4>
@@ -11,7 +11,7 @@
   <% end %>
   <%= control_group_tag(comment.errors[:body]) do %>
     <div class="controls">
-      <%= f.text_area :body, rows: 8 %>
+      <%= f.text_area :body, rows: 5 %>
     </div>
   <% end %>
   <div class="control-group">

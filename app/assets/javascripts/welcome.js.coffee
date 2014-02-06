@@ -4,4 +4,4 @@
 
 
 $ ->
-  $('div.alert').delay(1500).slideUp()
+  $('div.alert').delay(4500).slideUp()

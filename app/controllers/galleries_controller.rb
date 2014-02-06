@@ -24,6 +24,10 @@ class GalleriesController < ApplicationController
   def show
     @gallery = Gallery.find(params[:id])
 
+    @commentable = Gallery.find(params[:id])
+    @comments = @commentable.comments
+    @comment = Comment.new
+
     @picture = Picture.new
     authorize! :read, Gallery, message: "You need to be a confirmed friend/family member to view Galleries."
   end
@@ -57,5 +61,13 @@ class GalleriesController < ApplicationController
       flash[:error] = "There was an error deleting the gallery."
       render :show
     end
+  end
+  def find_commentable
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
   end
 end

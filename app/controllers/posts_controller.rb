@@ -6,7 +6,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments
+    @commentable = Post.find(params[:id])
+    @comments = @commentable.comments
     @comment = Comment.new
     authorize! :read, Post, message: "You need to be a confirmed friend/family member to view posts."
   end
@@ -57,6 +58,4 @@ class PostsController < ApplicationController
       render :show
     end
   end
-
-
 end

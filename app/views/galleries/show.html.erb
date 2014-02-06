@@ -15,5 +15,11 @@
   <% end %>
 
   
-  <%# @pictures.each do |picture| %>
+  <%= render @comments %>
+
+  <% if can? :create, Comment %>
+    <hr/>
+    <h4>New Comment</h4>
+    <%= render partial: 'comments/form', locals: { gallery: @gallery, comment: @comment } %>
+  <% end %>
 </div>

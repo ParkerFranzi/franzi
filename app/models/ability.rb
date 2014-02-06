@@ -10,6 +10,8 @@ class Ability
     if user.role? :member
       can :manage, Post, :user_id => user.id
       can :manage, Comment, :user_id => user.id
+      can :manage, Gallery, :user_id => user.id
+      can :manage, Picture, :user_id => user.id
       can :read, :all
     end
 
