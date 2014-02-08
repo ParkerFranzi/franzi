@@ -3,7 +3,7 @@
   <% if can? :edit, @gallery %>
     <%= link_to "Edit", edit_gallery_path(@gallery), class: 'btn btn-small btn-primary' %>
   <% end %>
-  <% if can? :create, Picture %>
+  <% if can? :edit, @gallery %>
     <%= link_to "New Picture", new_gallery_picture_path(@gallery), class: 'btn btn-small btn-primary' %>
   <% end %>
 
